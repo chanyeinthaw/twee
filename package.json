@@ -1,0 +1,24 @@
+{
+  "name": "tweebot",
+  "version": "1.0.0",
+  "description": "Tweet Bot",
+  "main": "src/main.js",
+  "repository": "git@github.com:chanyeinthaw/twee.git",
+  "author": "Chan Nyein Thaw (me@chanyeinthaw.com)",
+  "license": "MIT",
+  "scripts": {
+    "local": "cross-env NODE_ENV=local node src/main.js",
+    "start:prod": "pm2 start server.yaml --env production"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "glob": "^7.1.6",
+    "login-with-twitter": "^1.2.4",
+    "oauth": "^0.9.15",
+    "pm2": "^4.5.6"
+  }
+}

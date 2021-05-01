@@ -1,0 +1,10 @@
+apps:
+  - name: 'local'
+    script: './src/main.js'
+    autorestart: true
+    env:
+      NODE_ENV: 'local'
+      PORT: 3000
+    env_production:
+      NODE_ENV: 'production'
+      PORT: 3000
