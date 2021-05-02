@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', { title: 'Login' } ); %>
+
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
+
+<body>
+    <div class="row login-row">
+        <div class="login">
+            <p>Login to Twee</p>
+
+            <form action="/login" method="POST"exp>
+                <label for="username">
+                    <input value="<%= username %>" required type="text" name="username" placeholder="Username">
+                </label>
+
+                <label for="password">
+                    <input value="<%= password %>" required type="password" name="password" placeholder="Password">
+                </label>
+
+                <% if (error) { %>
+                    <span class="error">
+                        <%= error %>
+                    </span>
+                <% } %>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

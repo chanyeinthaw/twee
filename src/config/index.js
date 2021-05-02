@@ -1,7 +1,12 @@
 /**
  * @typedef {{
- *     port: number
+ *     port: number,
+ *     defaultAdminPassword: string
  * }} AppConfig
+ *
+ * @typedef {{
+ *     url: string
+ * }} DBConfig
  *
  * @typedef {{
  *     APIKey: string,
@@ -19,7 +24,8 @@
  * @typedef {{
  *     twitter: TwitterConfig,
  *     session: SessionConfig,
- *     app: AppConfig
+ *     app: AppConfig,
+ *     db: DBConfig
  *  }} Config
  */
 

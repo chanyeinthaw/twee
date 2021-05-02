@@ -1,0 +1,35 @@
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.login p {
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.login form > * {
+    margin-bottom: 16px;
+}
+
+.login form input, .login form button {
+    padding: 8px 10px;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.login-row {
+    justify-content: center;
+
+    margin-top: 64px;
+}

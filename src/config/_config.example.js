@@ -2,7 +2,15 @@
  * @type {AppConfig}
  */
 exports.app = {
-    port: parseInt(process.env.PORT || 3000)
+    port: parseInt(process.env.PORT || 3000),
+    defaultAdminPassword: 'password'
+}
+
+/**
+ * @type {DBConfig}
+ */
+exports.db = {
+    url: ''
 }
 
 /**

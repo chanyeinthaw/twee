@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', { title: 'Dashboard' } ); %>
+
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+</head>
+
+<body>
+    <div class="nav">
+        <span>Twee</span>
+
+        <div class="nav-ctrl">
+            <button onclick="changePassword()">Change Password</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <% if (error) { %>
+        <span class="error"><%= error %></span>
+    <% } %>
+
+    <div class="col">
+        <span>Twitter: <%= twitter.username %></span>
+        <span>Tweet Type: <%= twitter.tweetType == 0 ? 'quote-tweet' : 're-tweet' %></span>
+
+        <% if (twitter.tweetType == 1) { %>
+            <button onclick="document.location.href = '/twitter/change-type?type=0'">Quote Tweet</button>
+        <% } else if (twitter.tweetType == 0) { %>
+        <button onclick="document.location.href = '/twitter/change-type?type=1'">Retweet</button>
+        <% } %>
+
+        <% if (!twitter.connected) { %>
+        <button onclick="document.location.href = '/twitter'" >Connect to Twitter</button>
+        <% } else { %>
+        <button onclick="document.location.href = '/twitter/disconnect'">Disconnect</button>
+        <% } %>
+    </div>
+
+    <% if (isAdmin) { %>
+    <div class="list">
+        <form class="create" action="/user" method="POST">
+            <span>Create new user</span>
+            <input type="text" name="username" required placeholder="Username">
+
+            <input type="text" name="password" required placeholder="Password">
+
+            <select name="userType">
+                <option value="0">Admin</option>
+                <option value="1" selected>User</option>
+            </select>
+
+            <button>Create new</button>
+        </form>
+
+        <% if (users.length > 0) { %>
+            <div class="users">
+                <span>Users</span>
+
+                <% users.forEach(user => { %>
+                    <div class="user">
+                        <span><%= user.username %></span>
+
+                        <% if (user.userType == 0) { %>
+                            <span>admin</span>
+                        <% } else { %>
+                            <span>user</span>
+                        <% } %>
+
+                        <div>
+                            <button onclick="changePasswordFor('<%= user.username %>')">Change Password</button>
+                            <button onclick="remove('<%= user.username %>')">Remove</button>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
+    <% } %>
+
+    <script src="/public/js/dashboard.js"></script>
+</body>
+</html>
