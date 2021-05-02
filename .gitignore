@@ -2,5 +2,6 @@
 node_modules/
 src/config/config.*.js
 telethon/env/
-telethon/config.ini
-telethon/twee.session
+telethon/config.chan.ini
+telethon/config.hla.ini
+telethon/twee.*.session

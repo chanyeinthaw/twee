@@ -2,6 +2,7 @@ import configparser
 import json
 import asyncio
 from datetime import date, datetime
+import os
 
 from telethon import TelegramClient
 from telethon.errors import SessionPasswordNeededError
@@ -27,7 +28,8 @@ class DateTimeEncoder(json.JSONEncoder):
 
 # Reading Configs
 config = configparser.ConfigParser()
-config.read("config.ini")
+print("ENV " + os.getenv('NODE_ENV'))
+config.read("config." + os.getenv('NODE_ENV', 'hla') + ".ini")
 
 # Setting configuration values
 api_id = config['Telegram']['api_id']
@@ -38,7 +40,7 @@ api_url = config['Twee']['api_url']
 
 api_hash = str(api_hash)
 
-client = TelegramClient('twee', api_id, api_hash)
+client = TelegramClient('twee.hla', api_id, api_hash)
 
 @client.on(events.NewMessage(chats=channel_url))
 async def channel_event_handler(event):

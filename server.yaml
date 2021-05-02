@@ -5,11 +5,20 @@ apps:
     env:
       NODE_ENV: 'local'
       PORT: 3000
-    env_production:
-      NODE_ENV: 'production'
+    env_chan:
+      NODE_ENV: 'chan'
+      PORT: 3000
+    env_hla:
+      NODE_ENV: 'hla'
       PORT: 3000
 
   - name: 'telethon'
     script: 'main.py'
     autorestart: true
     cwd: './telethon'
+    env:
+      NODE_ENV: 'local'
+    env_chan:
+      NODE_ENV: 'chan'
+    env_hla:
+      NODE_ENV: 'hla'
