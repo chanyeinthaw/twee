@@ -1,7 +1,8 @@
 /**
  * @typedef {{
  *     port: number,
- *     defaultAdminPassword: string
+ *     defaultAdminPassword: string,
+ *     apiKey: string
  * }} AppConfig
  *
  * @typedef {{

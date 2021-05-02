@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../../web/views'))
 
 app.use(bodyParser.json())
+app.use(bodyParser.text())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
