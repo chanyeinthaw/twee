@@ -23,13 +23,13 @@
 
     <div class="col">
         <span>Twitter: <%= twitter.username %></span>
-        <span>Tweet Type: <%= twitter.tweetType == 0 ? 'quote-tweet' : 're-tweet' %></span>
+<!--        <span>Tweet Type: <%= twitter.tweetType == 0 ? 'quote-tweet' : 're-tweet' %></span>-->
 
-        <% if (twitter.tweetType == 1) { %>
-            <button onclick="document.location.href = '/twitter/change-type?type=0'">Quote Tweet</button>
-        <% } else if (twitter.tweetType == 0) { %>
-        <button onclick="document.location.href = '/twitter/change-type?type=1'">Retweet</button>
-        <% } %>
+<!--        <% if (twitter.tweetType == 1) { %>-->
+<!--            <button onclick="document.location.href = '/twitter/change-type?type=0'">Quote Tweet</button>-->
+<!--        <% } else if (twitter.tweetType == 0) { %>-->
+<!--        <button onclick="document.location.href = '/twitter/change-type?type=1'">Retweet</button>-->
+<!--        <% } %>-->
 
         <% if (!twitter.connected) { %>
         <button onclick="document.location.href = '/twitter'" >Connect to Twitter</button>
