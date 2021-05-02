@@ -10,5 +10,6 @@ apps:
       PORT: 3000
 
   - name: 'telethon'
-    script: './telethon/main.py'
+    script: 'main.py'
     autorestart: true
+    cwd: './telethon'
