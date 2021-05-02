@@ -11,6 +11,7 @@ from telethon.tl.types import (
     PeerChannel
 )
 from telethon import TelegramClient, events
+import requests
 
 # some functions to parse json date
 class DateTimeEncoder(json.JSONEncoder):
@@ -32,6 +33,8 @@ config.read("config.ini")
 api_id = config['Telegram']['api_id']
 api_hash = config['Telegram']['api_hash']
 channel_url = config['Telegram']['channel_url']
+api_key = config['Twee']['api_key']
+api_url = config['Twee']['api_url']
 
 api_hash = str(api_hash)
 
@@ -46,7 +49,13 @@ async def channel_event_handler(event):
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
         print("Received Date: ", dt_string)
-        # update status to server
+
+        requests.post(
+            api_url,
+            data=event.raw_text,
+            headers={'Content-Type': 'text/plain', 'API_KEY': api_key}
+        )
+
         print("Tweets sent...\n")
 
 

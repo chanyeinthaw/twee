@@ -1,5 +1,5 @@
 apps:
-  - name: 'local'
+  - name: 'twee'
     script: './src/main.js'
     autorestart: true
     env:
@@ -8,3 +8,7 @@ apps:
     env_production:
       NODE_ENV: 'production'
       PORT: 3000
+
+  - name: 'telethon'
+    script: './telethon/main.py'
+    autorestart: true
