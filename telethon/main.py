@@ -44,7 +44,7 @@ client = TelegramClient('twee', api_id, api_hash)
 async def channel_event_handler(event):
     if "👉 Click To Tweet 👈" not in event.raw_text:
         print("Message recevied from Click To Tweet Channel")
-        print("Message: %s" % event.raw_text)
+        print("Message: %s" % event.raw_text.encode())
         # datetime object containing current date and time
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -52,7 +52,7 @@ async def channel_event_handler(event):
 
         requests.post(
             api_url,
-            data=event.raw_text,
+            data=event.raw_text.encode(),
             headers={'Content-Type': 'text/plain', 'API_KEY': api_key}
         )
 
