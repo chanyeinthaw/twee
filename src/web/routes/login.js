@@ -4,8 +4,8 @@ const bcrypt = require('../../lib/bcrypt')
 app.get('/login', controllers.noAuth, (req, res) => {
     res.render('login', {
         error: undefined,
-        username: 'admin',
-        password: 'password'
+        username: '',
+        password: ''
     })
 })
 
